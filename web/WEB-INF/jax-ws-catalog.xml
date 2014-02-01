@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://soapupc.jelastic.servint.net/ServicioReniec?wsdl" uri="wsdl/soapupc.jelastic.servint.net/ServicioReniec.wsdl"/>
+    <system systemId="http://soapupc.jelastic.servint.net:80/ServicioReniec?xsd=1" uri="wsdl/soapupc.jelastic.servint.net_80/ServicioReniec.xsd_1.xsd"/>
+    <system systemId="http://env-3370651.jelastic.servint.net/ServicioReniec/ServicioReniec?wsdl" uri="wsdl/env-3370651.jelastic.servint.net/ServicioReniec/ServicioReniec.wsdl"/>
+    <system systemId="http://env-3370651.jelastic.servint.net:80/ServicioReniec/ServicioReniec?xsd=1" uri="wsdl/env-3370651.jelastic.servint.net_80/ServicioReniec/ServicioReniec.xsd_1.xsd"/>
+    <system systemId="http://env-3370651.jelastic.servint.net/ServicioSUNAT/ServicioSUNAT?wsdl" uri="wsdl/env-3370651.jelastic.servint.net/ServicioSUNAT/ServicioSUNAT.wsdl"/>
+    <system systemId="http://env-3370651.jelastic.servint.net:80/ServicioSUNAT/ServicioSUNAT?xsd=1" uri="wsdl/env-3370651.jelastic.servint.net_80/ServicioSUNAT/ServicioSUNAT.xsd_1.xsd"/>
+</catalog>
