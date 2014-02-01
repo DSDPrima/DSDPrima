@@ -50,7 +50,7 @@ public class TestGrabar {
 			GestionContratoAfiliacion negocio = new GestionContratoAfiliacion();
 
 			try {
-				negocio.insertar(1234,"11/12/2013","DNI", "456123","PRO1","Luis","Alberto","Sotelo","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555");
+				negocio.insertar(1234,"11/12/2013","DNI", "456123","PRO1","Luis","Alberto","Sotelo","Cruces","Junin","Huancavelica","Toro Seco","Loma Umbrosa 520","Lima","Lima","Lima","Al cotado de una casa","5555555",);
 
 //				Categoria nuevo = negocio.obtener(7);
 

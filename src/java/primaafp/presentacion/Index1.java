@@ -449,7 +449,10 @@ public class Index1 extends HttpServlet {
 		       negocio.insertar(1234,personaconsulta.getFechaNacimiento(),"DNI",personaconsulta.getDni() ,"PRO1",personaconsulta.getPrimerNombre(),personaconsulta.getSegundoNombre(),
                        personaconsulta.getPrimerApellido(),personaconsulta.getSegundoApellido(),personaconsulta.getProvincia(),
                        personaconsulta.getDepartamento(),personaconsulta.getDistrito(),personaconsulta.getDireccion(),personaconsulta.getProvincia(),
-                       personaconsulta.getDepartamento(),personaconsulta.getDistrito(),"Al cotado de una casa","5555555");
+                       personaconsulta.getDepartamento(),personaconsulta.getDistrito(),"Al cotado de una casa","5555555",empresaconsulta.getRUC(),empresaconsulta.getDescripcion(),
+                       empresaconsulta.getRAM(),empresaconsulta.getProfesion(),empresaconsulta.getFechaInicioLaboral(),empresaconsulta.getEstadoCivil(),empresaconsulta.getCelular(),
+                       empresaconsulta.getTelefonoOficina(),empresaconsulta.getAnexo(),empresaconsulta.getNroHijos(),empresaconsulta.getDireccionPreferencia(),empresaconsulta.getTipoPreferenciaDireccion(),
+                       empresaconsulta.getReferencia(),empresaconsulta.getDepartamento(),empresaconsulta.getProvincia(),empresaconsulta.getDistrito());
 
 			} 
             catch (DAOExcepcion e) {

@@ -17,7 +17,7 @@ public class ContratoAfiliacionDAO extends BaseDAO {
 		//System.out.println("ContratoAfiliacionDAO: insertar()");
 		System.out.println("ContratoAfiliacionDAO: Contrato Insertado");
 
-		String query = "INSERT INTO ContratoAfiliacion (NroFormulario, FechaSuscripcion, TipoDocumento, NroDocumento, CodigoPromotor, PrimerNombre, SegundoNombre, ApellidoPaterno, ApellidoMaterno, DepartamentoNacimiento, ProvinciaNacimiento, DistritoNacimiento, Direccion, Departamento, Provincia, Distrito, Referencia, Telefono) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO ContratoAfiliacion (NroFormulario, FechaSuscripcion, TipoDocumento, NroDocumento, CodigoPromotor, PrimerNombre, SegundoNombre, ApellidoPaterno, ApellidoMaterno, DepartamentoNacimiento, ProvinciaNacimiento, DistritoNacimiento, Direccion, Departamento, Provincia, Distrito, Referencia, Telefono,Ruc, Descripcion, RAM, Profesion, FechaInicioLaboral, EstadoCivil, Celular, TelefonoOficina, Anexo, NroHijos, DireccionPreferencia, TipoPreferenciaDireccion, ReferenciaS, DepartamentoS, ProvinciaS, DistritoS) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -43,9 +43,25 @@ public class ContratoAfiliacionDAO extends BaseDAO {
 			stmt.setString(16, vo.getDistrito());
 			stmt.setString(17, vo.getReferencia());
 			stmt.setString(18, vo.getTelefono());
-			
-			
-			int i = stmt.executeUpdate();
+                        stmt.setString(19, vo.getRUC());
+                        stmt.setString(20, vo.getDescripcion());
+			stmt.setString(21, vo.getRAM());
+                        stmt.setString(22, vo.getProfesion());
+                        stmt.setString(23, vo.getFechaInicioLaboral());
+			stmt.setString(24, vo.getEstadoCivil());
+                        stmt.setString(25, vo.getCelular());
+                        stmt.setString(26, vo.getTelefonoOficina());
+                        stmt.setString(27, vo.getAnexo());
+                        stmt.setString(28, vo.getNroHijos());
+                        stmt.setString(29, vo.getDireccionPreferencia());
+                        stmt.setString(30, vo.getTipoPreferenciaDireccion());
+                        stmt.setString(31, vo.getReferenciaS());
+                        stmt.setString(32, vo.getDepartamentoS());
+                        stmt.setString(33, vo.getProvinciaS());
+                        stmt.setString(34, vo.getDistritoS());
+                                           
+                                           
+                        int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
 			}
@@ -66,7 +82,7 @@ public class ContratoAfiliacionDAO extends BaseDAO {
 		ResultSet rs = null;
 		try {
 			con = ConexionBD.obtenerConexion();
-			String query = "select NroFormulario,FechaSuscripcion,TipoDocumento,NroDocumento,CodigoPromotor,PrimerNombre,SegundoNombre,ApellidoPaterno,ApellidoMaterno,DepartamentoNacimiento,ProvinciaNacimiento,DistritoNacimiento,Direccion,Departamento,Provincia,Distrito,Referencia,Telefono from ContratoAfiliacion where NroFormulario = " + NroFormulario + " ";
+			String query = "select NroFormulario,FechaSuscripcion,TipoDocumento,NroDocumento,CodigoPromotor,PrimerNombre,SegundoNombre,ApellidoPaterno,ApellidoMaterno,DepartamentoNacimiento,ProvinciaNacimiento,DistritoNacimiento,Direccion,Departamento,Provincia,Distrito,Referencia,Telefono,Ruc,Descripcion,RAM,Profesion,FechaInicioLaboral,EstadoCivil,Celular,TelefonoOficina,Anexo,NroHijos,DireccionPreferencia,TipoPreferenciaDireccion,ReferenciaS,DepartamentoS,ProvinciaS,DistritoS from ContratoAfiliacion where NroFormulario = " + NroFormulario + " ";
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -89,6 +105,22 @@ public class ContratoAfiliacionDAO extends BaseDAO {
 				vo.setDistrito(rs.getString("Distrito"));
 				vo.setReferencia(rs.getString("Referencia"));
 				vo.setTelefono(rs.getString("Telefono"));
+                                vo.setRUC(rs.getString("RUC"));
+                                vo.setDescripcion(rs.getString("Descripcion"));
+                                vo.setRAM(rs.getString("RAM"));
+                                vo.setProfesion(rs.getString("Profesion"));
+                                vo.setFechaInicioLaboral(rs.getString("FechaInicioLaboral"));
+                                vo.setEstadoCivil(rs.getString("EstadoCivil"));
+                                vo.setCelular(rs.getString("Celular"));
+                                vo.setTelefonoOficina(rs.getString("TelefonoOficina"));
+                                vo.setAnexo(rs.getString("Anexo"));
+                                vo.setNroHijos(rs.getString("NroHijos"));
+                                vo.setDireccionPreferencia(rs.getString("DireccionPreferencia"));
+                                vo.setTipoPreferenciaDireccion(rs.getString("TipoPreferenciaDireccion"));
+                                vo.setReferenciaS(rs.getString("ReferenciaS"));
+                                vo.setDepartamentoS(rs.getString("DepartamentoS"));
+                                vo.setProvinciaS(rs.getString("ProvinciaS"));
+                                vo.setDistritoS(rs.getString("DistritoS"));
 				c.add(vo);
 			}
 
@@ -104,7 +136,7 @@ public class ContratoAfiliacionDAO extends BaseDAO {
 	}
 
 	public ContratoAfiliacion actualizar(ContratoAfiliacion vo) throws DAOExcepcion {
-		String query = "update contratoafiliacion set NroFormulario=?,FechaSuscripcion=?,TipoDocumento=?,NroDocumento=?,CodigoPromotor=?,PrimerNombre=?,SegundoNombre=?,ApellidoPaterno=?,ApellidoMaterno=?,DepartamentoNacimiento=?,ProvinciaNacimiento=?,DistritoNacimiento=?,Direccion=?,Departamento=?,Provincia=?,Distrito=?,Referencia=?,Telefono=?  ";
+		String query = "update contratoafiliacion set FechaSuscripcion=?,TipoDocumento=?,NroDocumento=?,CodigoPromotor=?,PrimerNombre=?,SegundoNombre=?,ApellidoPaterno=?,ApellidoMaterno=?,DepartamentoNacimiento=?,ProvinciaNacimiento=?,DistritoNacimiento=?,Direccion=?,Departamento=?,Provincia=?,Distrito=?,Referencia=?,Telefono=? where NroFormulario=? ";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
@@ -128,6 +160,23 @@ public class ContratoAfiliacionDAO extends BaseDAO {
 			stmt.setString(16, vo.getDistrito());
 			stmt.setString(17, vo.getReferencia());
 			stmt.setString(18, vo.getTelefono());
+                        stmt.setString(19, vo.getRUC());
+                        stmt.setString(20, vo.getDescripcion());
+			stmt.setString(21, vo.getRAM());
+                        stmt.setString(22, vo.getProfesion());
+                        stmt.setString(23, vo.getFechaInicioLaboral());
+			stmt.setString(24, vo.getEstadoCivil());
+                        stmt.setString(25, vo.getCelular());
+                        stmt.setString(26, vo.getTelefonoOficina());
+                        stmt.setString(27, vo.getAnexo());
+                        stmt.setString(28, vo.getNroHijos());
+                        stmt.setString(29, vo.getDireccionPreferencia());
+                        stmt.setString(30, vo.getTipoPreferenciaDireccion());
+                        stmt.setString(31, vo.getReferenciaS());
+                        stmt.setString(32, vo.getDepartamentoS());
+                        stmt.setString(33, vo.getProvinciaS());
+                        stmt.setString(34, vo.getDistritoS());
+                        
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo actualizar");

@@ -8,7 +8,7 @@ import primaafp.modelo.ContratoAfiliacion;
 
 public class GestionContratoAfiliacion {
 
-	public ContratoAfiliacion insertar(int nroformulario, String fechasuscripcion, String tipodocumento, String nrodocumento, String codigopromotor, String primernombre, String segundonombre, String apellidopaterno, String apellidomaterno, String departamentonacimiento, String provincianacimiento, String distritonacimiento, String direccion, String departamento, String provincia, String distrito, String referencia, String telefono )
+	public ContratoAfiliacion insertar(int nroformulario, String fechasuscripcion, String tipodocumento, String nrodocumento, String codigopromotor, String primernombre, String segundonombre, String apellidopaterno, String apellidomaterno, String departamentonacimiento, String provincianacimiento, String distritonacimiento, String direccion, String departamento, String provincia, String distrito, String referencia, String telefono, String Ruc, String Descripcion, String RAM, String Profesion, String FechaInicioLaboral, String EstadoCivil, String Celular, String TelefonoOficina, String Anexo, String NroHijos, String DireccionPreferencia, String TipoPreferenciaDireccion, String ReferenciaS, String DepartamentoS, String ProvinciaS, String DistritoS )
 			throws DAOExcepcion {
 		ContratoAfiliacionDAO dao = new ContratoAfiliacionDAO();
 
@@ -32,8 +32,22 @@ public class GestionContratoAfiliacion {
 		vo.setDistrito(distrito);
 		vo.setReferencia(referencia);
 		vo.setTelefono(telefono);
-		
-		
+		vo.setRUC(Ruc);
+		vo.setDescripcion(Descripcion);
+                vo.setRAM(RAM);
+                vo.setProfesion(Profesion);
+                vo.setFechaInicioLaboral(FechaInicioLaboral);
+                vo.setEstadoCivil(EstadoCivil);
+                vo.setCelular(Celular);
+                vo.setTelefonoOficina(TelefonoOficina);
+                vo.setAnexo(Anexo);
+                vo.setNroHijos(NroHijos);
+                vo.setDireccionPreferencia(DireccionPreferencia);
+                vo.setTipoPreferenciaDireccion(TipoPreferenciaDireccion);
+                vo.setReferenciaS(ReferenciaS);
+                vo.setDepartamentoS(DepartamentoS);
+                vo.setProvinciaS(ProvinciaS);
+                vo.setDistritoS(DistritoS);
 		//System.out.println("ResidenteDAO: insertar()");
 		//return vo;
 		return dao.insertar(vo);
@@ -45,7 +59,7 @@ public class GestionContratoAfiliacion {
 		return dao.listar(nroformulario);
 	}
 
-	public ContratoAfiliacion actualizar(int nroformulario, String fechasuscripcion, String tipodocumento, String nrodocumento, String codigopromotor, String primernombre, String segundonombre, String apellidopaterno, String apellidomaterno, String departamentonacimiento, String provincianacimiento, String distritonacimiento, String direccion, String departamento, String provincia, String distrito, String referencia, String telefono ) throws DAOExcepcion {
+	public ContratoAfiliacion actualizar(int nroformulario, String fechasuscripcion, String tipodocumento, String nrodocumento, String codigopromotor, String primernombre, String segundonombre, String apellidopaterno, String apellidomaterno, String departamentonacimiento, String provincianacimiento, String distritonacimiento, String direccion, String departamento, String provincia, String distrito, String referencia, String telefono, String Ruc, String Descripcion, String RAM, String Profesion, String FechaInicioLaboral, String EstadoCivil, String Celular, String TelefonoOficina, String Anexo, String NroHijos, String DireccionPreferencia, String TipoPreferenciaDireccion, String ReferenciaS, String DepartamentoS, String ProvinciaS, String DistritoS  ) throws DAOExcepcion {
 		ContratoAfiliacionDAO dao = new ContratoAfiliacionDAO();
 
 		ContratoAfiliacion vo = new ContratoAfiliacion();
@@ -67,7 +81,23 @@ public class GestionContratoAfiliacion {
 		vo.setDistrito(distrito);
 		vo.setReferencia(referencia);
 		vo.setTelefono(telefono);
-
+                vo.setRUC(Ruc);
+		vo.setDescripcion(Descripcion);
+                vo.setRAM(RAM);
+                vo.setProfesion(Profesion);
+                vo.setFechaInicioLaboral(FechaInicioLaboral);
+                vo.setEstadoCivil(EstadoCivil);
+                vo.setCelular(Celular);
+                vo.setTelefonoOficina(TelefonoOficina);
+                vo.setAnexo(Anexo);
+                vo.setNroHijos(NroHijos);
+                vo.setDireccionPreferencia(DireccionPreferencia);
+                vo.setTipoPreferenciaDireccion(TipoPreferenciaDireccion);
+                vo.setReferenciaS(ReferenciaS);
+                vo.setDepartamentoS(DepartamentoS);
+                vo.setProvinciaS(ProvinciaS);
+                vo.setDistritoS(DistritoS);
+                
 		return dao.actualizar(vo);
 	}
 
